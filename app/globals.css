@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background-color: #050b18;
+  color: #e2e8f0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(16, 185, 129, 0.08), transparent),
+    radial-gradient(ellipse 60% 40% at 90% 10%, rgba(56, 189, 248, 0.05), transparent);
+  background-attachment: fixed;
+}
+
+/* Números alineados en columna (clave en un dashboard financiero) */
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* ---------- Cards ---------- */
+
+.card {
+  background: linear-gradient(160deg, rgba(12, 27, 54, 0.75), rgba(8, 18, 38, 0.9));
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 1rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.card:hover {
+  border-color: rgba(52, 211, 153, 0.35);
+  box-shadow:
+    0 0 0 1px rgba(52, 211, 153, 0.12),
+    0 8px 40px -12px rgba(52, 211, 153, 0.25);
+  transform: translateY(-2px);
+}
+
+/* ---------- Animaciones ---------- */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  opacity: 0;
+  animation: fade-up 0.55s ease-out forwards;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(52, 211, 153, 0);
+  }
+}
+
+.live-dot {
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+
+@keyframes grow-bar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.gap-bar {
+  transform-origin: left center;
+  transform: scaleX(0);
+  animation: grow-bar 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinning {
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes flash-up {
+  0% {
+    color: #34d399;
+  }
+  100% {
+    color: inherit;
+  }
+}
+
+@keyframes flash-down {
+  0% {
+    color: #f87171;
+  }
+  100% {
+    color: inherit;
+  }
+}
+
+.flash-up {
+  animation: flash-up 1.2s ease-out;
+}
+
+.flash-down {
+  animation: flash-down 1.2s ease-out;
+}
+
+/* Scrollbar sutil, acorde al theme */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #050b18;
+}
+::-webkit-scrollbar-thumb {
+  background: #122547;
+  border-radius: 8px;
+}
